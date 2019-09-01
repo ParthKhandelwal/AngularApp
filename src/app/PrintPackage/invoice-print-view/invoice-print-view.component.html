@@ -1,0 +1,154 @@
+<ng-container>
+<div class="invoicePrintView" id="print-section">
+  <div class="header">
+    <div class="companyImage">
+
+    </div>
+    <div class="voucherInformation">
+      <div class="customerInformation">
+        <b>Customer Information</b><br>
+        {{customer.name}}<br>
+        {{customer.fullAddress.name}}, {{customer.fullAddress.tehsilName}}<br>
+        {{customer.fullAddress.stateName}}
+      </div>
+      <div class="customVoucherInformation">
+        <table>
+
+
+        <tr>
+        <td>Invoice Number</td>
+        <td>{{tallyVoucher.customVoucherDetails.voucherNumber}}</td>
+        </tr>
+        <tr>
+        <td>Date</td>
+        <td>{{tallyVoucher.customVoucherDetails.date | date: "dd-MMM-yyyy"}}</td>
+        </tr>
+        <tr>
+        <td>Created By</td>
+        <td>{{tallyVoucher.customVoucherDetails.date | date: "dd-MMM-yyyy"}}</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <table class="table" id = "productTable">
+      <tr class="table-header">
+      <th width = '30%' class="header__item">Product Details</th>
+      <th class="header__item">Batch Details</th>
+      <th class="header__item">Qty</th>
+      <th class="header__item">CGST<br>SGST</th>
+      <th class="header__item">Rate</th>
+      <th class="header__item">Amount</th>
+      </tr>
+    <ng-container class="table-content" *ngFor = "let item of tallyVoucher.billedStockItems">
+      <tr class="table-row">
+      <td class="table-data" width = '30%'>
+        <b>{{item.name}}</b> <br>
+        {{item.parent}}
+      </td>
+      <td class="table-data">
+        {{item.batch.name}}<br>
+        {{item.batch.expiryDate| date: "dd-MMM-yyyy"}}
+      </td>
+      <td class="table-data">
+        {{item.quantity}}
+      </td>
+      <td class="table-data">
+        {{item.cgst}}<br>
+        {{item.sgst}}
+      </td>
+      <td class="table-data">
+        {{item.rate}}
+      </td>
+      <td class="table-data">
+        {{item.amount}}
+      </td>
+      </tr>
+    </ng-container>
+</table>
+<div class="lowerBody">
+  <div class="posDetails">
+    <table id='posTable'>
+      <tr>
+        <td width = "97%">Cash Recieved</td>
+        <td>{{tallyVoucher.customVoucherDetails.posCashRecieved}}</td>
+      </tr>
+      <tr>
+        <td>Invoice Total</td>
+        <td>{{tallyVoucher.ledgerEntry.cash}}</td>
+      </tr>
+      <tr>
+        <td>Balance</td>
+        <td>{{tallyVoucher.customVoucherDetails.posCashRecieved - tallyVoucher.ledgerEntry.cash}}</td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="total">
+  <table id = 'totalTable'>
+  <tr>
+    <td width = '100%'>Subtotal</td>
+    <td>{{tallyVoucher.ledgerEntry.subTotal}}</td>
+  </tr>
+  <tr>
+    <td width = '10%'>CGST</td>
+    <td>{{tallyVoucher.ledgerEntry.cgst}}</td>
+  </tr>
+  <tr>
+    <td width = '50%'>SGST</td>
+    <td>{{tallyVoucher.ledgerEntry.sgst}}</td>
+  </tr>
+  <tr>
+    <td width = '50%'><b>Total</b></td>
+    <td><b>{{tallyVoucher.ledgerEntry.cash}}</b></td>
+  </tr>
+  </table>
+  </div>
+
+
+</div>
+  </div>
+  <div class="footer">
+    <div id="hsnPart">
+      <table id = 'hsnTable' #hsnTable border="1">
+        <col>
+        <col>
+        <colgroup span="2"></colgroup>
+        <colgroup span="2"></colgroup>
+        <col>
+        <tr>
+        <th rowspan="2">HSN/SAC</th>
+        <th rowspan="2">Taxable Value</th>
+        <th colspan="2" scope="colgroup">Central Tax</th>
+        <th colspan="2" scope="colgroup">State Tax</th>
+        <th rowspan="2">Total</th>
+        </tr>
+        <tr>
+          <th scope="col">Rate</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Rate</th>
+          <th scope="col">Amount</th>
+        </tr>
+
+          <ng-container *ngFor = 'let code of hsnDetails()'>
+          <tr>
+            <td>{{code.hsnCode}}</td>
+            <td>{{code.taxableValue}}</td>
+            <td>{{code.cgst.rate}}</td>
+            <td>{{code.cgst.amount}}</td>
+            <td>{{code.sgst.rate}}</td>
+            <td>{{code.sgst.amount}}</td>
+            <td>{{code.cgst.amount + code.sgst.amount}}</td>
+          </tr>
+          </ng-container>
+
+      </table>
+    </div>
+    <div class="termAndCondition">
+
+    </div>
+  </div>
+</div>
+</ng-container>

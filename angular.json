@@ -24,9 +24,12 @@
               "src/assets"
             ],
             "styles": [
+
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+
+            ]
           },
           "configurations": {
             "production": {
@@ -116,5 +119,5 @@
         }
       }
     }},
-  "defaultProject": "Agrostop-WebApp"
+  "defaultProject": "Agrostop-WebApp",
 }

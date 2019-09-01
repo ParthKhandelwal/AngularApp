@@ -1,0 +1,23 @@
+<div data-type="default" class="card-body">
+            <form data-type="default" #f='ngForm' (submit)= "f.form.valid && validate()" accept-charset="UTF-8" role="form">
+                <fieldset data-type="default">
+                    <div data-type="default" class="form-group">
+
+                      <input data-type="default"
+                      [(ngModel)]= "user.username"
+                      type="text" required
+                     #username= 'ngModel' [ngClass] = "{'is-invalid': f.submitted && username.invalid}" placeholder="Enter Username" name="username" class="form-control"
+                      />
+                    </div>
+
+                    <div data-type="default" class="form-group">
+                      <input data-type="default" [(ngModel)]= "user.password" type="password" placeholder="Password" name="password" value="" class="form-control"
+                      required
+                     #password= 'ngModel' [ngClass] = "{'is-invalid': f.submitted && password.invalid}" />
+                    </div>
+                    <div data-type="default" class="checkbox"><label><input data-type="default" name="remember" type="checkbox" value="Remember Me" /> Remember Me </label></div>
+                    <button type="submit" name="button" class="btn btn-lg btn-success btn-block">Login</button>
+                </fieldset>
+            </form>
+            <hr data-type="default" />
+</div>

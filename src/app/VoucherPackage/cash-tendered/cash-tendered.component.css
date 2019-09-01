@@ -1,0 +1,10 @@
+.fullWidthButton{
+  width: 100%;
+}
+
+.success{
+  color: 'red';
+}
+.failure{
+  color: 'green';
+}

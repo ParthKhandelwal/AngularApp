@@ -1,0 +1,102 @@
+
+
+.invoicePrintView{
+  padding: 10px;
+  font-size: 12px;
+}
+.header{
+
+}
+
+.voucherInformation{
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.customerInformation{
+ width: 45%;
+}
+.customVoucherInformation{
+  width: 45%;
+  margin-left:10%;
+}
+
+.body{
+width: 100%;
+}
+
+.lowerBody{
+  margin-top: 20px;
+  display: flex;
+}
+.total{
+  margin-left: 10%;
+  width: 45%;
+
+}
+
+.posDetails{
+  width: 45%
+
+}
+
+.footer{
+
+}
+.hsnPart{
+  width: 100%;
+}
+
+#productTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#productTable td, #productTable th {
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+
+#productTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#productTable tr:hover {background-color: #ddd;}
+
+#productTable th {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#totalTable td{
+  border-bottom: 1px solid #ddd;
+}
+
+#posTable td{
+  border-bottom: 1px solid #ddd;
+}
+#hsnTable{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#hsnTable td, #hsnTable th {
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+
+#hsnTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#hsnTable tr:hover {background-color: #ddd;}
+
+#hsnTable th {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  background-color: #F1C40F;
+  color: white;
+}
